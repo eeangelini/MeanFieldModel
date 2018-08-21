@@ -84,8 +84,8 @@ The following Matlab functions constitute the mean-field model of mitotic spindl
 \label{params}
 
 \begin{description}
-\item[\texttt{a}:] Ellipse/cell major axis (i.e. half-length of $x$-axis)
-\item[\texttt{b}:] Ellipse/cell minor axis (i.e. half-length of $y$-axis)
+\item[\texttt{a}:] Ellipse/cell major axis (i.e. half-length of $x$-axis, values between 15-30)
+\item[\texttt{b}:] Ellipse/cell minor axis (i.e. half-length of $y$-axis, values between 15-25)
 \item[\texttt{ctr}:] Spindle-center position $x$-coordinate
 \item[\texttt{phi\_1}:] Upper MT aster spread, between 0 and $\pi$
 \item[\texttt{phi\_2}:] Lower MT aster spread, between 0 and $\pi$
@@ -110,6 +110,26 @@ The following Matlab functions constitute the mean-field model of mitotic spindl
 \item[\texttt{P\_p}:] Posterior binding probability (= 1)
 \item[\texttt{P\_a}:] Anterior binding probability (= 0.65, from compt. model)
 \end{description}
+
+\noindent For asymmetric MT asters, specifically for a leading upper aster, the standard values are $\phi_1 = 2.324$ and $\phi_2 = 2\pi/3$. Below are examples of sample commands with different inputs.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/sample1.png}
+\caption{Command for a cell with aspect ratio 25:15, on-center spindle, symmetric MT asters (spread of 2$\pi$/3), no push bands, no anterior-to-posterior asymmetry, no length dependent pulling forces, and no MT elasticity.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/sample2.png}
+\caption{Command for a cell with aspect ratio 28:15, off-center spindle (shifted right by 8 units), asymmetric MT asters ($\phi_1 = 2.324$, $\phi_2 = 2\pi/3$), no push bands, anterior-to-posterior asymmetry, no length dependent pulling forces, and no MT elasticity.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/sample3.png}
+\caption{Command for a cell with aspect ratio 30:15, off-center spindle (shifted right by 10 units), asymmetric MT asters ($\phi_1 = 2.324$, $\phi_2 = 2\pi/3$), no push bands, no anterior-to-posterior asymmetry, length dependent pulling forces, and no MT elasticity.}
+\end{figure}
 
 \subsection{.mat files}
 \noindent\texttt{dyneins16to30.mat}: Contains a cell of vectors, where cell index \texttt{a} corresponds to the vector of dynein locations for given input \texttt{a} to \texttt{Main.m} (\texttt{b} is fixed at 15). \\[3pt]
